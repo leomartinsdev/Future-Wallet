@@ -10,7 +10,7 @@ const wallet = (state = INITIAL_STATE2, action) => {
   case RECEIVE_CURRENCIES:
     return {
       ...state,
-      currencies: action.currencies,
+      currencies: Object.keys(action.currencies).filter((ele) => ele !== 'USDT'),
     };
   default:
     return state;
