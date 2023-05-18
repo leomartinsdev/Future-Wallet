@@ -2,6 +2,7 @@ export const SAVE_EMAIL = 'SAVE_EMAIL';
 export const RECEIVE_CURRENCIES = 'RECEIVE_CURRENCIES';
 export const SAVE_RATE = 'SAVE_RATE';
 export const SAVE_EXPENSES = 'SAVE_EXPENSES';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export const user = (email) => ({
   type: SAVE_EMAIL,
@@ -34,4 +35,9 @@ export const saveExpenses = (stateLocal, id, exchangeRates) => ({
       id,
       exchangeRates,
     },
+});
+
+export const deleteExpense = (id) => ({
+  type: DELETE_EXPENSE,
+  id,
 });

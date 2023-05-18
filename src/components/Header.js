@@ -6,7 +6,6 @@ class Header extends Component {
   render() {
     const { email, expenses } = this.props;
     let gastoTotal = 0;
-    console.log(expenses);
     expenses
       .map((ele) => {
         gastoTotal += ele.exchangeRates[ele.currency].ask * Number(ele.value);

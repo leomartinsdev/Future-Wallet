@@ -17,11 +17,7 @@ class Login extends React.Component {
 
     this.setState({
       [name]: value,
-    }, this.validations);
-  };
-
-  validations = () => {
-    this.loginVerifications();
+    }, this.loginVerifications);
   };
 
   loginVerifications = () => {
