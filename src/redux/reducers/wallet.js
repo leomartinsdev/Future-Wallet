@@ -18,7 +18,7 @@ const wallet = (state = INITIAL_STATE2, action) => {
       ...state,
       expenses: [...state.expenses, action.payload],
     };
-  case DELETE_EXPENSE: // preciso fazer esse reducer
+  case DELETE_EXPENSE:
     return {
       ...state,
       expenses: state.expenses.filter((expense) => expense.id !== action.id),
