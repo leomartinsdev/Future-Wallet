@@ -1,8 +1,11 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import validator from 'validator';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { user } from '../redux/actions';
+import '../styles/pages/Login.css';
 
 class Login extends React.Component {
   state = {
@@ -40,39 +43,45 @@ class Login extends React.Component {
   render() {
     const { loginVerifications, email, password } = this.state;
     return (
-      <div>
-        <span>Login</span>
-        <section>
-          <label htmlFor="email">
-            <input
-              name="email"
-              type="email"
-              placeholder="email@email.com"
-              data-testid="email-input"
-              value={ email }
-              onChange={ this.onInputChange }
-            />
-          </label>
+      <div className="container d-flex main-container">
+        <div className="glass-effect">
+          <div className="form-div">
+            <h2>Login</h2>
+            <Form>
+              <Form.Label htmlFor="email">Endereço de e-mail</Form.Label>
+              <Form.Control
+                name="email"
+                type="email"
+                placeholder="email@email.com"
+                data-testid="email-input"
+                value={ email }
+                onChange={ this.onInputChange }
+              />
 
-          <label htmlFor="password">
-            <input
-              name="password"
-              type="password"
-              placeholder="Senha"
-              data-testid="password-input"
-              value={ password }
-              onChange={ this.onInputChange }
-            />
-          </label>
-
-          <button
-            type="button"
-            disabled={ loginVerifications }
-            onClick={ () => this.handleEnterBtn(email) }
-          >
-            Entrar
-          </button>
-        </section>
+              <br />
+              <Form.Label htmlFor="password">Senha</Form.Label>
+              <Form.Control
+                name="password"
+                type="password"
+                placeholder="Pelo menos 6 dígitos"
+                data-testid="password-input"
+                value={ password }
+                onChange={ this.onInputChange }
+              />
+              <br />
+            </Form>
+            <Button
+              className="btn-outline-primary"
+              size="lg"
+              style={ { backgroundColor: 'white', color: 'rgb(255, 93, 111)' } }
+              type="button"
+              disabled={ loginVerifications }
+              onClick={ () => this.handleEnterBtn(email) }
+            >
+              Entrar
+            </Button>
+          </div>
+        </div>
       </div>
     );
   }

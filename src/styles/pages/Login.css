@@ -1,0 +1,31 @@
+body {
+  color: white;
+}
+
+.main-container {
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+h2 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: rgb(255, 240, 247);
+}
+
+.glass-effect {
+  backdrop-filter: blur(20px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 8px 21px 0 rgba(0, 0, 0, 0.37);
+}
+
+.form-div {
+  padding: 20px;
+}
