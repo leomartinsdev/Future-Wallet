@@ -2,15 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import WalletForm from '../components/WalletForm';
-import Table from '../components/Table';
+import ExpensesTable from '../components/Table';
+import '../styles/pages/Wallet.css';
 
 class Wallet extends React.Component {
   render() {
     return (
-      <div>
+      <div className="wallet-page d-flex flex-column align">
         <Header />
         <WalletForm />
-        <Table />
+        <ExpensesTable />
       </div>
     );
   }

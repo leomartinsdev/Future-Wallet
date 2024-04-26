@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Table from 'react-bootstrap/Table';
 import { deleteExpense } from '../redux/actions';
+import '../styles/components/Table.css';
 
-class Table extends Component {
+class ExpensesTable extends Component {
   render() {
     const { expenses, dispatch } = this.props;
     return (
-      <div>
-        <table>
+      <div className="scrollable-table">
+        <Table responsive="sm">
           <thead>
             <tr>
               <th>Descrição</th>
@@ -51,6 +53,7 @@ class Table extends Component {
                   <td>
                     <button
                       type="button"
+                      className="btn btn-custom"
                       data-testid="delete-btn"
                       onClick={ () => dispatch(deleteExpense(expense.id)) }
                     >
@@ -60,7 +63,7 @@ class Table extends Component {
                 </tr>))
             }
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   }
@@ -70,8 +73,8 @@ const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-Table.propTypes = ({
+ExpensesTable.propTypes = ({
   expenses: PropTypes.any,
 }).isRequired;
 
-export default connect(mapStateToProps)(Table);
+export default connect(mapStateToProps)(ExpensesTable);

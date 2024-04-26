@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import '../styles/components/Header.css';
 
 class Header extends Component {
   render() {
@@ -12,15 +13,15 @@ class Header extends Component {
         return gastoTotal;
       });
     return (
-      <div>
+      <div className="header d-flex text-center">
         <span data-testid="email-field">
-          User:
+          Carteira de:
           {' '}
           { email }
         </span>
         <br />
-        <span>Despesa Total:</span>
         <span data-testid="total-field">
+          Depesa Total: R$
           { gastoTotal.toFixed(2) }
         </span>
         <br />
