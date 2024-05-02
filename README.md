@@ -10,4 +10,4 @@ O gerenciamento de estados foi feito utilizando Redux.
 [Future Wallet](https://future-wallet.vercel.app/)
 
 ## 👨‍💻 Tecnologias usadas:
-JavaScript, JSX, React, Redux, Componentes de Classe e HTML5.
+JavaScript, JSX, React, Redux, Componentes de Classe e Bootstrap.
