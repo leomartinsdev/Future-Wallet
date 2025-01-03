@@ -47,9 +47,7 @@ class WalletForm extends Component {
   // Primeiro, chama a API para pegar as informações da moeda. Depois, verifica os valores do objeto para compara-lo com a moeda atualmente usada.
   // Por último, retorna só as informações da moeda selecionada.
   getExchangeRate = async () => {
-    const getCurrenciesData = await fetch(
-      'https://economia.awesomeapi.com.br/json/all',
-    );
+    const getCurrenciesData = await fetch('https://economia.awesomeapi.com.br/json/all');
     const json = await getCurrenciesData.json();
     const allCurrenciesData = await json;
     return allCurrenciesData;
@@ -71,62 +69,58 @@ class WalletForm extends Component {
       <div className="wallet-form d-flex">
         <Form className="text-center">
           <Row className="mb-3">
-            <Form.Group className="md-3" as={ Col }>
+            <Form.Group className="md-3" as={Col}>
               <Form.Label htmlFor="value">
-                Valor da Despesa:
-                {' '}
+                Valor da Despesa:{' '}
                 <Form.Control
                   name="value"
                   type="text"
                   placeholder="Valor da Despesa"
                   data-testid="value-input"
-                  value={ value }
-                  onChange={ this.onInputChange }
+                  value={value}
+                  onChange={this.onInputChange}
                 />
               </Form.Label>
             </Form.Group>
 
-            <Form.Group className="md-3" as={ Col }>
+            <Form.Group className="md-3" as={Col}>
               <Form.Label htmlFor="description">
-                Descrição da Despesa:
-                {' '}
+                Descrição da Despesa:{' '}
                 <Form.Control
                   name="description"
                   type="text"
                   placeholder="Descrição da despesa"
                   data-testid="description-input"
-                  value={ description }
-                  onChange={ this.onInputChange }
+                  value={description}
+                  onChange={this.onInputChange}
                 />
               </Form.Label>
             </Form.Group>
 
-            <Form.Group className="md-3" as={ Col }>
+            <Form.Group className="md-3" as={Col}>
               <Form.Label htmlFor="currency">
-                Moeda:
-                {' '}
+                Moeda:{' '}
                 <Form.Select
                   name="currency"
                   data-testid="currency-input"
-                  value={ currency }
-                  onChange={ this.onInputChange }
+                  value={currency}
+                  onChange={this.onInputChange}
                 >
                   {currencyList.map((coin, index) => (
-                    <option key={ index }>{coin}</option>
+                    <option key={index}>{coin}</option>
                   ))}
                 </Form.Select>
               </Form.Label>
             </Form.Group>
 
-            <Form.Group className="md-3" as={ Col }>
+            <Form.Group className="md-3" as={Col}>
               <Form.Label htmlFor="method">
-                Método de Pagamento:
-                {' '}
+                Método de Pagamento:{' '}
                 <Form.Select
                   name="method"
                   data-testid="method-input"
-                  value={ method }
-                  onChange={ this.onInputChange }
+                  value={method}
+                  onChange={this.onInputChange}
                 >
                   <option value="Dinheiro">Dinheiro</option>
                   <option value="Cartão de crédito">Cartão de crédito</option>
@@ -135,15 +129,14 @@ class WalletForm extends Component {
               </Form.Label>
             </Form.Group>
 
-            <Form.Group className="md-3" as={ Col }>
+            <Form.Group className="md-3" as={Col}>
               <Form.Label htmlFor="tag">
-                Categoria da Despesa:
-                {' '}
+                Categoria da Despesa:{' '}
                 <Form.Select
                   name="tag"
                   data-testid="tag-input"
-                  value={ tag }
-                  onChange={ this.onInputChange }
+                  value={tag}
+                  onChange={this.onInputChange}
                 >
                   <option value="Alimentação">Alimentação</option>
                   <option value="Lazer">Lazer</option>
@@ -153,14 +146,15 @@ class WalletForm extends Component {
                 </Form.Select>
               </Form.Label>
             </Form.Group>
-
           </Row>
           <Button
             type="button"
-            style={ { backgroundColor: 'white',
+            style={{
+              backgroundColor: 'white',
               color: 'rgb(255, 93, 111)',
-              fontWeight: 'bold' } }
-            onClick={ this.handleAddButton }
+              fontWeight: 'bold',
+            }}
+            onClick={this.handleAddButton}
           >
             Adicionar Despesa
           </Button>
