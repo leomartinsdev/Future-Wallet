@@ -16,25 +16,24 @@ export const getCurrencies = (currencies) => ({
 
 // Essa função é uma action creator thunk que é usada no WalletForm para renderizar as options com cada moeda.
 export function fetchCurrencies() {
-  return (dispatch) => fetch('https://economia.awesomeapi.com.br/json/all')
-    .then((response) => response.json())
-    .then((currencies) => dispatch(getCurrencies(currencies)));
+  return (dispatch) =>
+    fetch('https://economia.awesomeapi.com.br/json/all')
+      .then((response) => response.json())
+      .then((currencies) => dispatch(getCurrencies(currencies)));
 }
 
 export const saveExchangeRate = (currencies) => ({
   type: SAVE_RATE,
   exchangeRates: currencies,
-
 });
 
 export const saveExpenses = (stateLocal, id, exchangeRates) => ({
   type: SAVE_EXPENSES,
-  payload:
-    {
-      ...stateLocal,
-      id,
-      exchangeRates,
-    },
+  payload: {
+    ...stateLocal,
+    id,
+    exchangeRates,
+  },
 });
 
 export const deleteExpense = (id) => ({

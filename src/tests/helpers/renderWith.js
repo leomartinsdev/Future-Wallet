@@ -8,27 +8,16 @@ import thunk from 'redux-thunk';
 import rootReducer from '../../redux/reducers';
 
 function withRouter(component, history) {
-  return (
-    <Router history={ history }>
-      { component }
-    </Router>
-  );
+  return <Router history={history}>{component}</Router>;
 }
 
 function withRedux(component, store) {
-  return (
-    <Provider store={ store }>
-      { component }
-    </Provider>
-  );
+  return <Provider store={store}>{component}</Provider>;
 }
 
 export function renderWithRouter(
   component,
-  {
-    initialEntries = ['/'],
-    history = createMemoryHistory({ initialEntries }),
-  } = {},
+  { initialEntries = ['/'], history = createMemoryHistory({ initialEntries }) } = {}
 ) {
   return {
     ...render(withRouter(component, history)),
@@ -49,10 +38,8 @@ export function renderWithRedux(component, options = {}) {
 }
 
 export function renderWithRouterAndRedux(component, options = {}) {
-  const {
-    initialEntries = ['/'],
-    history = createMemoryHistory({ initialEntries }),
-  } = options;
+  const { initialEntries = ['/'], history = createMemoryHistory({ initialEntries }) } =
+    options;
 
   return {
     ...renderWithRedux(withRouter(component, history), options),

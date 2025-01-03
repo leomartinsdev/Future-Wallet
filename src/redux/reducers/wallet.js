@@ -8,23 +8,23 @@ const INITIAL_STATE2 = {
 
 const wallet = (state = INITIAL_STATE2, action) => {
   switch (action.type) {
-  case RECEIVE_CURRENCIES:
-    return {
-      ...state,
-      currencies: Object.keys(action.currencies).filter((ele) => ele !== 'USDT'),
-    };
-  case SAVE_EXPENSES:
-    return {
-      ...state,
-      expenses: [...state.expenses, action.payload],
-    };
-  case DELETE_EXPENSE:
-    return {
-      ...state,
-      expenses: state.expenses.filter((expense) => expense.id !== action.id),
-    };
-  default:
-    return state;
+    case RECEIVE_CURRENCIES:
+      return {
+        ...state,
+        currencies: Object.keys(action.currencies).filter((ele) => ele !== 'USDT'),
+      };
+    case SAVE_EXPENSES:
+      return {
+        ...state,
+        expenses: [...state.expenses, action.payload],
+      };
+    case DELETE_EXPENSE:
+      return {
+        ...state,
+        expenses: state.expenses.filter((expense) => expense.id !== action.id),
+      };
+    default:
+      return state;
   }
 };
 

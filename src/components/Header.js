@@ -7,30 +7,21 @@ class Header extends Component {
   render() {
     const { email, expenses } = this.props;
     let gastoTotal = 0;
-    expenses
-      .map((ele) => {
-        gastoTotal += ele.exchangeRates[ele.currency].ask * Number(ele.value);
-        return gastoTotal;
-      });
+    expenses.map((ele) => {
+      gastoTotal += ele.exchangeRates[ele.currency].ask * Number(ele.value);
+      return gastoTotal;
+    });
     return (
       <div className="header d-flex text-center">
-        <span data-testid="email-field">
-          Carteira de:
-          {' '}
-          { email }
-        </span>
+        <span data-testid="email-field">Carteira de: {email}</span>
         <br />
         <span data-testid="total-field">
           Depesa Total: R$
-          { gastoTotal.toFixed(2) }
+          {gastoTotal.toFixed(2)}
         </span>
         <br />
 
-        <span data-testid="header-currency-field">
-          Câmbio:
-          {' '}
-          BRL
-        </span>
+        <span data-testid="header-currency-field">Câmbio: BRL</span>
       </div>
     );
   }
@@ -41,8 +32,8 @@ const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-Header.propTypes = ({
+Header.propTypes = {
   email: PropTypes.any,
-}).isRequired;
+}.isRequired;
 
 export default connect(mapStateToProps)(Header);

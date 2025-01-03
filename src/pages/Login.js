@@ -18,9 +18,12 @@ class Login extends React.Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
-      [name]: value,
-    }, this.loginVerifications);
+    this.setState(
+      {
+        [name]: value,
+      },
+      this.loginVerifications
+    );
   };
 
   loginVerifications = () => {
@@ -54,8 +57,8 @@ class Login extends React.Component {
                 type="email"
                 placeholder="email@email.com"
                 data-testid="email-input"
-                value={ email }
-                onChange={ this.onInputChange }
+                value={email}
+                onChange={this.onInputChange}
               />
 
               <br />
@@ -65,18 +68,18 @@ class Login extends React.Component {
                 type="password"
                 placeholder="Pelo menos 6 dígitos"
                 data-testid="password-input"
-                value={ password }
-                onChange={ this.onInputChange }
+                value={password}
+                onChange={this.onInputChange}
               />
               <br />
             </Form>
             <Button
               className="btn-outline-primary"
               size="lg"
-              style={ { backgroundColor: 'white', color: 'rgb(255, 93, 111)' } }
+              style={{ backgroundColor: 'white', color: 'rgb(255, 93, 111)' }}
               type="button"
-              disabled={ loginVerifications }
-              onClick={ () => this.handleEnterBtn(email) }
+              disabled={loginVerifications}
+              onClick={() => this.handleEnterBtn(email)}
             >
               Entrar
             </Button>
@@ -87,8 +90,8 @@ class Login extends React.Component {
   }
 }
 
-Login.propTypes = ({
+Login.propTypes = {
   dispatch: PropTypes.any,
-}).isRequired;
+}.isRequired;
 
 export default connect()(Login);

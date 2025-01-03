@@ -25,43 +25,32 @@ class ExpensesTable extends Component {
             </tr>
           </thead>
           <tbody>
-            {
-              expenses.map((expense) => (
-                <tr key={ expense.id }>
-                  <td>{expense.description}</td>
-                  <td>{expense.tag}</td>
-                  <td>{expense.method}</td>
-                  <td>{Number(expense.value).toFixed(2)}</td>
-                  <td>
-                    {
-                      expense.exchangeRates[expense.currency].name
-                    }
-                  </td>
-                  <td>
-                    {
-                      Number(expense.exchangeRates[expense.currency].ask).toFixed(2)
-                    }
-                  </td>
-                  <td>
-                    {
-                      (Number(expense.value)
-                      * expense.exchangeRates[expense.currency].ask)
-                        .toFixed(2)
-                    }
-                  </td>
-                  <td>Real</td>
-                  <td>
-                    <button
-                      type="button"
-                      className="btn btn-custom"
-                      data-testid="delete-btn"
-                      onClick={ () => dispatch(deleteExpense(expense.id)) }
-                    >
-                      Excluir
-                    </button>
-                  </td>
-                </tr>))
-            }
+            {expenses.map((expense) => (
+              <tr key={expense.id}>
+                <td>{expense.description}</td>
+                <td>{expense.tag}</td>
+                <td>{expense.method}</td>
+                <td>{Number(expense.value).toFixed(2)}</td>
+                <td>{expense.exchangeRates[expense.currency].name}</td>
+                <td>{Number(expense.exchangeRates[expense.currency].ask).toFixed(2)}</td>
+                <td>
+                  {(
+                    Number(expense.value) * expense.exchangeRates[expense.currency].ask
+                  ).toFixed(2)}
+                </td>
+                <td>Real</td>
+                <td>
+                  <button
+                    type="button"
+                    className="btn btn-custom"
+                    data-testid="delete-btn"
+                    onClick={() => dispatch(deleteExpense(expense.id))}
+                  >
+                    Excluir
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </div>
@@ -73,8 +62,8 @@ const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-ExpensesTable.propTypes = ({
+ExpensesTable.propTypes = {
   expenses: PropTypes.any,
-}).isRequired;
+}.isRequired;
 
 export default connect(mapStateToProps)(ExpensesTable);

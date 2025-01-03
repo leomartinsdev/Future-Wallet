@@ -1,6 +1,10 @@
-html , body {
-  background: linear-gradient(180deg, rgba(255, 128, 111, 1)
-  0%, rgba(255, 64, 111, 1) 100%);
+html,
+body {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 128, 111, 1) 0%,
+    rgba(255, 64, 111, 1) 100%
+  );
   box-sizing: border-box;
   height: 100%;
   margin: 0;
@@ -9,7 +13,9 @@ html , body {
 }
 
 h1 {
-  font-family: Tilt Neon, sans-serif;
+  font-family:
+    Tilt Neon,
+    sans-serif;
   font-size: 4rem;
   margin-bottom: 30px;
   margin-top: 20px;
